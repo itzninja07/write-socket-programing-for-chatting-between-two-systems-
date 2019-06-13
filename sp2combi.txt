@@ -1,0 +1,64 @@
+# sender 
+#!/bin/python2
+
+import socket
+recv_ip="127.0.0.1"
+recv_port=4444
+s=socket.socket(socket.AF_INET,socket.SOCK.DGRAM)
+print("you want to send or recieve")
+
+user=raw_input("press s to send and r to recieve")
+
+if(user=="r"):
+  while 4>2:
+  	data=s.recev_from(150)
+  	print("msg from reciever",data[0])
+  	print("sender ip+socket",data[1])
+  	s.sendto("ok gotcha",data[1])
+  	break
+
+if(user=="s")
+   while 4>2:
+	msg=raw_input("please enter msg")
+	if(len(msg)>150)
+		print("word limit excedded")
+	s.sendto(msg,recv_ip,recv_port)
+	print(s.recevfrom(150))
+	s=raw_input("if you wanna quit press q")
+	if(s=="yes")
+		break'
+s.close() 
+
+
+
+
+# Reciever
+#!/bin/python2
+
+import socket
+recv_ip="127.0.0.1"
+recv_port=4444
+s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+s.bind((recv_ip,recv_port))
+user1=raw_input("press s to send r to recieve")
+if(user1=="r"):
+  while 4>2 : 
+	data=s.recvfrom(100)
+	print("msg from sender",data[0])
+	print("sender ip+socket",data[1])
+	s.sendto("ok gotca",data[1])
+	break
+  s.close()
+
+
+elif(user1=="s"):
+  while 4>3 :
+    msg=raw_input("plz enter your message")
+    if(len(msg) > 150):
+       print("length exceded")
+
+    s.sendto(msg,(recv_ip,recv_port))
+    print(s.recvfrom(10))
+    s=raw_input("do you wanna quit the chat")
+    if(s=="yes"):
+	break
